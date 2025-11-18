@@ -41,5 +41,14 @@ julia> longest_collatz_length(10)
 """
 function longest_collatz_length(max_n)
     # TODO: Implementation should go here!
-    return nothing
+    longest_length=1
+    result_n=1
+        for i in 1:max_n
+            current_length=collatz_length(i)
+            if current_length>longest_length
+                longest_length=current_length
+                result_n=i
+            end
+        end
+    return result_n
 end
