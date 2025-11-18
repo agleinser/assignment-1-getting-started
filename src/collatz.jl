@@ -11,9 +11,17 @@ julia> collatz_length(13)
 10
 ```
 """
-function collatz_length(n)
-    # TODO: Implementation should go here!
-    return nothing
+function collatz_length(n::Integer)
+    current_length = 1 # gibt die ANzahl EInträge in der Kette an, nicht die Summe dieser
+    while n!=1 # Schleife läuft für n>1 und n<1 nur nicht für n=1
+        if n % 2==0
+            n=n ÷ 2 # ÷->Operator für Integerdivision
+        else
+            n=3n+1
+        end
+        current_length += 1
+    end
+    return current_length
 end
 
 """
